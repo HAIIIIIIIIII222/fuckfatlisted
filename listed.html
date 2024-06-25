@@ -1,523 +1,351 @@
-<!DOCTYPE html><html><head>
+<!--
+▄▄▄█████▓▓█████ ▓█████  ███▄    █ ▒██   ██▒
+▓  ██▒ ▓▒▓█   ▀ ▓█   ▀  ██ ▀█   █ ▒▒ █ █ ▒░
+▒ ▓██░ ▒░▒███   ▒███   ▓██  ▀█ ██▒░░  █   ░
+░ ▓██▓ ░ ▒▓█  ▄ ▒▓█  ▄ ▓██▒  ▐▌██▒ ░ █ █ ▒ 
+  ▒██▒ ░ ░▒████▒░▒████▒▒██░   ▓██░▒██▒ ▒██▒
+  ▒ ░░   ░░ ▒░ ░░░ ▒░ ░░ ▒░   ▒ ▒ ▒▒ ░ ░▓ ░
+    ░     ░ ░  ░ ░ ░  ░░ ░░   ░ ▒░░░   ░▒ ░
+  ░         ░      ░      ░   ░ ░  ░    ░  
+            ░  ░   ░  ░         ░  ░    ░  
+                                           
+--><html lang="en"><head>
+<title>...</title>
+<meta charset="utf-8">
+<meta property="og:site_name" content="X_x">
+<meta property="og:title" content="🤡">
+<meta property="og:image:height" content="967">
+<script src="/cdn-cgi/apps/head/8_-Ntgmvz1uY7XmcCn-77_ol_as.js"></script><style>
+        body { 
+          background-image: url(''); 
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+          
+   
+        }
 
+        a {
+            color: #FFF
+        }
 
-   <script>
+        p,
+        pre {
+            text-align: center;
+            margin: 0.5em auto;
+            max-width: 600px;
+        }
 
-
-    /*** Plugin ***/
-
-    (function($) {
-        // writes the string
-        //
-        // @param jQuery $target
-        // @param String str
-        // @param Numeric cursor
-        // @param Numeric delay
-        // @param Function cb
-        // @return void
-        function typeString($target, str, cursor, delay, cb) {
-         $target.html(function(_, html) {
-           return html + str[cursor];
-         });
-        
-         if (cursor < str.length - 1) {
-           setTimeout(function() {
-             typeString($target, str, cursor + 1, delay, cb);
-           }, delay);
-         } else {
-           cb();
-         }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
         
-        // clears the string
-        //
-        // @param jQuery $target
-        // @param Numeric delay
-        // @param Function cb
-        // @return void
-        function deleteString($target, delay, cb) {
-         var length;
-        
-         $target.html(function(_, html) {
-           length = html.length;
-           return html.substr(0, length - 1);
-         });
-        
-         if (length > 1) {
-           setTimeout(function() {
-             deleteString($target, delay, cb);
-           }, delay);
-         } else {
-           cb();
-         }
-        }
-        
-        // jQuery hook
-        $.fn.extend({
-         teletype: function(opts) {
-           var settings = $.extend({}, $.teletype.defaults, opts);
-        
-           return $(this).each(function() {
-             (function loop($tar, idx) {
-               // type
-               typeString($tar, settings.text[idx], 0, settings.delay, function() {
-                 // delete
-                 setTimeout(function() {
-                   deleteString($tar, settings.delay, function() {
-                     loop($tar, (idx + 1) % settings.text.length);
-                   });
-                 }, settings.pause);
-               });
-        
-             }($(this), 0));
-           });
-         }
-        });
-        
-        // plugin defaults  
-        $.extend({
-         teletype: {
-           defaults: {
-             delay: 100,
-             pause: 5000,
-             text: []
-           }
-         }
-        });
-        }(jQuery));
-        
-        
-        /*** init ***/
-        
-        $('#target').teletype({
-        text: [
-         'Lorem ipsum dolor sit amet, consetetur sadipscing elitr,',
-         'sed diam nonumy eirmod tempor invidunt ut labore et dolore',
-         'magna aliquyam erat, sed diam voluptua. At vero eos et',
-         'accusam et justo duo dolores et ea rebum. Stet clita kasd',
-         'gubergren, no sea takimata sanctus est Lorem ipsum dolor sit',
-         'amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,',
-         'sed diam nonumy eirmod tempor invidunt ut labore et dolore',
-         'magna aliquyam erat, sed diam voluptua. At vero eos et accusam',
-         'et justo duo dolores et ea rebum. Stet clita kasd gubergren,',
-         'no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-        ]
-        });
-        
-        $('#cursor').teletype({
-        text: ['_', ' '],
-        delay: 0,
-        pause: 500
-        });
-        </script>
-         
-         
-         <script>
-         
-         var isNS = (navigator.appName == "Netscape") ? 1 : 0;
-         if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
-         function mischandler(){
-         return false;
-         }
-         function mousehandler(e){
-         var myevent = (isNS) ? e : event;
-         var eventbutton = (isNS) ? myevent.which : myevent.button;
-         if((eventbutton==2)||(eventbutton==3)) return false;
-         }
-         document.oncontextmenu = mischandler;
-         document.onmousedown = mousehandler;
-         document.onmouseup = mousehandler;
-         </script>
-         
-         <script disable-devtool-auto="" src="js/disable-devtool-disable-devtool.min.js"></script>
-         <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-         <script src="js/jquery.min.js"></script>
-         
-         
-             
-         <title>listed</title>
-         <meta charset="UTF-8">
-         <meta property="og:type" content="website">
-         <meta property="og:title" content="listed">
-         <meta property="og:description" content="sat was here">
-         <meta property="og:url" content="https://listed.xyz">
-         <meta property="og:image" content="https://larp.rip/sex.png">
-         <meta name="theme-color" content="#000000">
-         </head><body onload="document.body.style.opacity='1'" style="opacity: 1;"><audio autoplay="true" src="media/drugs.mp3"></audio>
-         <script src="js/script.js"></script>
+       .snowflake {
+              color: #ffffff;
+              font-size: 1.5em;
+              font-family: Arial, sans-serif;
+              text-shadow: 0 0 14px white;
+          }
 
-             <style>
-             
-        
-        
-        .typewriter-text1 {
-        animation-name: typewriter1;
+
+          @-webkit-keyframes snowflakes-fall {
+              0% {
+                 top: -10%
+              }
+              100% {
+                  top: 100%
+              }
         }
-        
-        
-        
-        .typewriter-text1{
-        overflow: hidden;
-        white-space: nowrap;
-        display: inline-block;
-        position: relative;
-        animation-duration: 15s;
-        animation-timing-function: steps(45, end);
-        animation-iteration-count: infinite;
+
+        @-webkit-keyframes snowflakes-shake {
+            0%,
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0)
+            }
+            50% {
+                -webkit-transform: translateX(80px);
+                transform: translateX(80px)
+            }
+    }
+
+    @keyframes snowflakes-fall {
+        0% {
+            top: -10%
         }
-        
-        .typewriter-text1::after {
-        content: "|";
-        position: absolute;
-        animation: caret infinite;
-        animation-duration: 0.5s;
-        animation-timing-function: steps(1, end);
-        }
-        
-        @keyframes typewriter1 {
-        0%,
-        50%,
         100% {
-         width: 0;
+            top: 100%
         }
-        10%,
-        40% {
-         width: 25em;
-        }
-        }
-        
-        @keyframes caret {
+    }
+
+    @keyframes snowflakes-shake {
         0%,
         100% {
-         opacity: 0;
+            transform: translateX(0)
         }
         50% {
-         opacity: 1;
+            transform: translateX(80px)
         }
-        }
-         
+    }
+
+    .snowflake {
+        position: fixed;
+        top: -10%;
+        z-index: 9999;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+        -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+        -webkit-animation-duration: 10s, 3s;
+        -webkit-animation-timing-function: linear, ease-in-out;
+        -webkit-animation-iteration-count: infinite, infinite;
+        -webkit-animation-play-state: running, running;
+        animation-name: snowflakes-fall, snowflakes-shake;
+        animation-duration: 10s, 3s;
+        animation-timing-function: linear, ease-in-out;
+        animation-iteration-count: infinite, infinite;
+        animation-play-state: running, running
+    }
+
+    .snowflake:nth-of-type(0) {
+        left: 1%;
+        -webkit-animation-delay: 0s, 0s;
+        animation-delay: 0s, 0s
+    }
+
+    .snowflake:nth-of-type(1) {
+        left: 10%;
+        -webkit-animation-delay: 1s, 1s;
+        animation-delay: 1s, 1s
+    }
+
+    .snowflake:nth-of-type(2) {
+        left: 20%;
+        -webkit-animation-delay: 6s, .5s;
+        animation-delay: 6s, .5s
+    }
+
+    .snowflake:nth-of-type(3) {
+        left: 30%;
+        -webkit-animation-delay: 4s, 2s;
+        animation-delay: 4s, 2s
+    }
+
+    .snowflake:nth-of-type(4) {
+        left: 40%;
+        -webkit-animation-delay: 2s, 2s;
+        animation-delay: 2s, 2s
+    }
+
+    .snowflake:nth-of-type(5) {
+        left: 50%;
+        -webkit-animation-delay: 8s, 3s;
+        animation-delay: 8s, 3s
+    }
+
+    .snowflake:nth-of-type(6) {
+        left: 60%;
+        -webkit-animation-delay: 6s, 2s;
+        animation-delay: 6s, 2s
+    }
+
+    .snowflake:nth-of-type(7) {
+        left: 70%;
+        -webkit-animation-delay: 2.5s, 1s;
+        animation-delay: 2.5s, 1s
+    }
+
+    .snowflake:nth-of-type(8) {
+        left: 80%;
+        -webkit-animation-delay: 1s, 0s;
+        animation-delay: 1s, 0s
+    }
+
+    .snowflake:nth-of-type(9) {
+        left: 90%;
+        -webkit-animation-delay: 3s, 1.5s;
+        animation-delay: 3s, 1.5s
+    }
+
+    .snowflake:nth-of-type(10) {
+        left: 25%;
+        -webkit-animation-delay: 2s, 0s;
+        animation-delay: 2s, 0s
+    }
+
+    .snowflake:nth-of-type(11) {
+        left: 65%;
+        -webkit-animation-delay: 4s, 2.5s;
+        animation-delay: 4s, 2.5s
+    }
+    </style>
+</head>
+<body>
+<table width="100%" height="100%" border="0">
+<tbody>
+<tr>
+<td valign="middle" align="center">
+<p>
+<img src="images/640x640.jpg" class="center" width="50" border="0">
+
+</p>
+<pre><a href="https://discord.gg/vmQ9rH2G" target="_blank">#niggerd</a><br> 
+
+<a href="https://doxbin.net/user/RI0T" target="_blank">Riotzone</a>
+
+<a href="https://doxbin.com/user/sat" target="_blank">Sat</a><br>
+</pre></td>
+</tr>
+</tbody>
+</table>
+
+<script>
+    function handleClick() {
+        const nameElements = document.querySelectorAll('.clickmessage');
+            nameElements.forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+        const audioUrls = [
+            "2.mp3",
+            
+
+        ];
+
+        const rndAudio = Math.floor(Math.random() * audioUrls.length);
+
+        const audioItem = new Audio(audioUrls[rndAudio]);
+        audioItem.volume = 0.1;
+        audioItem.loop = true;
+        audioItem.play();
+
+        document.removeEventListener("click", handleClick);
+    }
+
+    document.addEventListener("click", handleClick);
+    </script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Source Code</title>
+    <style>
+        /* Prevent text selection */
         body {
-         margin: 0;
-         padding: 0;
-         background-color: black;
-         overflow: hidden;
-         font-family: "Brandon Light";
-         color: white;
-         user-select: none;
-         opacity: 0;
-         transition: opacity 2s;
-         -webkit-transition: opacity 5s; /* Safari */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
         }
-        
-        a {
-         color: white;
-         text-decoration: none;
-         padding: 0;
-        }
-        
-        .center {
-         position: absolute;
-         text-align: center;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         
-        }
-        
-        #border {
-         position: absolute;
-         width: 100%;
-         height: 100%;
-         box-sizing: border-box;
-         pointer-events: none;
-         z-index: -1;
-        }
-        
-        
-        #borderTop, #borderBottom {
-         position: absolute;
-         width: 0%;
-         height: 4px;
-         background-color: purple;
-        }
-        
-        #borderRight, #borderLeft {
-         position: absolute;
-         width: 3px;
-         height: 0%;
-         background-color: purple;
-        }
-        
-        video {
-         position: fixed;
-         right: 0;
-         bottom: 0;
-         min-width: 100%;
-         min-height: 100%;
-         z-index: -2;
-         filter: blur(5px) brightness(30%);
-         pointer-events: none;
-        }
-        
-        #test p {
-         opacity: 0;
-        }
-        
-        pre {
-         -webkit-animation: fadein 3s;
-         font-weight: bold;
-         font-size: 16px;
-         user-select: none;
-         color: #8682c5;
-         background: repeating-linear-gradient(120deg, #8682c5 0%, rgb(48, 57, 94) 20%, #8682c5 20%);
-         background-size: 60vw 60vw;
-         -webkit-text-fill-color: transparent;
-         -webkit-background-clip: text;
-         animation: slide 5s linear infinite forwards;
-        }
-        
-        @keyframes slide {
-         0% {
-             background-position-x: 0%;
-         }
-         100% {
-             background-position-x: 60vw;
-         }
-        }
-        
-        pre2 {
-         font-weight: bold;
-         font-size: 16px;
-         user-select: none;
-         color: #8682c5;
-         background: repeating-linear-gradient(120deg, #8682c5 0%, rgb(48, 57, 94) 20%, #8682c5 20%);
-         background-size: 60vw 60vw;
-         -webkit-text-fill-color: transparent;
-         -webkit-background-clip: text;
-         animation: slide2 2.7s linear infinite forwards;
-        }
-        
-        @keyframes slide2 {
-         0% {
-             background-position-x: 0%;
-         }
-         100% {
-             background-position-x: 60vw;
-         }
-        }
-        
-        
-        #widgetContainer {
-         opacity: 0;
-         position: absolute;
-         right: 20px;
-         top: 20px;
-         width: 400px;
-         height: 38px;
-         background: repeating-linear-gradient(120deg, #8682c5 0%, rgb(48, 57, 94) 60%, #8682c5 20%);
-         background-size: 60vw 60vw;
-         animation: slide 10s linear infinite forwards;
-         transition: 1s;
-        }
-        
-        #widget {
-         position: absolute;
-         width: 394px;
-         height: 29px;
-         margin: 3px;
-         background-color: black;
-         z-index: 1;
-         transition: 2s;
-         
-        }
-        
-        #widgetMain {
-         position: absolute;
-         display: inline-flex;
-         justify-content: space-between;
-         margin-top: 3px;
-         padding-right: 10px;
-         padding-left: 10px;
-         width: 374px;
-         height: 29px;
-         z-index: 2;
-         background-color: black;
-        }
-        
-        #burgerMenu {
-         cursor: pointer;
-        }
-        
-        #dropDownContent {
-         display: none;
-         opacity: 0;
-         transition: 2s;
-         width: 100%;
-         height: 100%;
-         position: absolute;
-         margin-top: 30px;
-        }
-        
-        #links {
-         right: 5px;
-         width: 100px;
-         float: left;
-         margin-top: -4px;
-        }
-        
-        #groups {
-         float: right;
-         margin-top: 5px;
-        }
-        
-        #dropDownContent div a {
-         opacity: 0;
-         transition: 1s;
-         line-height: 18px;
-        }
-        
-        #dropDownContent div span {
-         margin-left: 10px;
-         margin-right: 10px;
-        }
-        
-        #groups a, #groups span {
-         float: right;
-        }
-        
-        .hitCount {
-         position: fixed;
-         bottom: 5px;
-         right: 5px;
-         transition: 3s;
-         color: var(--color);
-         font-size: 24px;
-         opacity: 0;
-         bottom: -3px;
-        }
-        
-        a.hitCounter.badge-done0 {
-         display: none!important;
-        }
-        
-        
-        </style>
-         <script src="js/matrixs.js"></script>
-         
-         
-        
-        
-         
-        <div class="center">
-         <pre> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
-          ██╗░░░░░██╗░██████╗████████╗███████╗██████╗░
-          ██║░░░░░██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗
-          ██║░░░░░██║╚█████╗░░░░██║░░░█████╗░░██║░░██║
-          ██║░░░░░██║░╚═══██╗░░░██║░░░██╔══╝░░██║░░██║
-          ███████╗██║██████╔╝░░░██║░░░███████╗██████╔╝
-            ╚══════╝╚═╝╚═════╝░░░░╚═╝░░░╚══════╝╚═════╝░    
-                          
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         
-        <span style="font-weight: bold;text-shadow: 0 0 5px hwb(#8682c5);"><a href="https://discord.com/users/838592646548684800" target="_blank"> My Discord</a>
-        <span style="font-weight: bold;text-shadow: 0 0 5px hwb(#8682c5);"><a href="https://t.me/listedzone" target="_blank"> My Telegram </a></span>
-        
-        <span style="font-weight: bold;text-shadow: 0 0 5px hwb(#8682c5);"><a>  #zone</a></span>
-        
-        <span id="typElement"></span>
-        </pre>
-        </div>
-        <pre>        </pre>
-        <script src="js/dist-core.js"></script>
-        
-        <script>
-        
-        function getRandomInt(max) {
-         return Math.floor(Math.random() * Math.floor(max));
-        }
-        
-        function type() {
-         let strs = [ 
-         <span style="font-weight: bold;text-shadow: 0 0 5px hwb(#8682c5);">
-        ___ ___ ___ 
-        | . | -_| . |
-        |  _|___|  _|
-        |_|     |_|  
-         
-        ];
-        
-        var num = getRandomInt(strs.length);
-        
-        var typElement = document.getElementById('typElement');
-        
-        var typewriter = new Typewriter(typElement, {
-         loop: true
-        });
-        
-        typewriter.typeString(strs[num]).pauseFor(5000).deleteAll().pauseFor(100).callFunction(() => {
-         typewriter.stop();
-         type();
-        }).start();
-        }
-        </script>
-        
-        <script>
-        type()
-        </script>
-         <script src="js/dist-core.js"></script>
-         <script src="js/2.1.1-jquery.min.js"></script>
-         
-        
-        <script>
-        $(document).ready(function(){
-          var string = $.trim($('p').text());
-          string = string.replace(/\(([^)]+)\)/, "$1"();
-          $('p').html(string);
-        });
-        
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        
-        function type() {
-            let strs = [
-                "  welcome...",
-                "  ...",
-                "  ...",
-                "  ...",
-        ];
-        var num = getRandomInt(strs.length);
-        
-        var typElement = document.getElementById('typElement');
-        
-        var typewriter = new Typewriter(typElement, {
-            loop: true
-        });
-        
-        typewriter.typeString(strs[num]).pauseFor(500).deleteAll().pauseFor(10).callFunction(() => {
-            typewriter.stop();
-            type();
-        }).start();
-        </script>
-        
-        
+    </style>
+
+
+    
+    
+    
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Click to Enter</title>
         <style>
-        span{
-        font-weight: bold;
-        text-shadow: 0 0 5px hwb(#8682c5);
-        }
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: monospace;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+            }
+    
+            #backdrop {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(0, 0, 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999;
+                cursor: pointer;
+            }
+    
+            #enterText {
+                font-size: 20px;
+            }
+    
+            #content {
+                display: none;
+                padding: 20px;
+            }
         </style>
-          <style type="text/css">
-           * {
-             cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1155.cur), auto !important;
-           }
-         </style>
+    
+    
+        <div id="backdrop">
+            <div id="enterText">click to proceed</div>
+        </div>
+    
+        <div id="content">
+        </div>
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
+            <div class="snowflake">
+                X
+            </div>
         
+    
         <script>
-        type()
+            document.getElementById('backdrop').addEventListener('click', function() {
+                document.getElementById('backdrop').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+
+            });
         </script>
-        
+    
+    
+   
 
-
-     
-</body></html>
+    
+</div></body></html>
